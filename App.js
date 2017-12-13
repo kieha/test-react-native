@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
-export default class App extends Component {
+class App extends Component {
   render() {
+    let pic = {
+      uri: "https://static.pexels.com/photos/46174/strawberries-berries-fruit-freshness-46174.jpeg"
+    };
+
     return (
       <View style={styles.container}>
-        <Text>HELLO WORLD!</Text>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Image source={pic} style={{width: 193, height: 110}}/>
       </View>
     );
   }
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
