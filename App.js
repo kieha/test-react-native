@@ -11,6 +11,38 @@ class Greeting extends Component {
   }
 }
 
+class Clock extends Component {
+  constructor() {
+    super();
+    this.state = {
+      date: new Date()
+    };
+  }
+  
+  componentDidMount() {
+   this.timerID = setInterval(
+     () => this.tick(),
+     1000
+   );
+ }
+
+ componentWillUnmount() {
+   clearInterval(this.timerID);
+ }
+
+ tick() {
+   this.setState({
+     date: new Date()
+   });
+ }
+
+  render() {
+    return (
+      <Text style={{paddingBottom: 10}}>{this.state.date.toLocaleTimeString()}</Text>
+    );
+  }
+}
+
 class App extends Component {
   render() {
     let pic = {
@@ -19,6 +51,7 @@ class App extends Component {
 
     return (
       <View style={styles.container}>
+        <Clock />
         <Image source={pic} style={{width: 193, height: 110}}/>
         <Greeting name="Njeri"/>
       </View>
